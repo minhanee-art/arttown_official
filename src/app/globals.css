@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+@import "tailwindcss";
+
+:root {
+  --background: #FAFAF8;
+  --foreground: #1A1A1A;
+  --accent: #E85D3A;
+  --accent-warm: #F4A261;
+  --accent-soft: #F8E8D4;
+  --text-secondary: #6B6B6B;
+  --border: #E8E8E4;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-warm: var(--accent-warm);
+  --color-accent-soft: var(--accent-soft);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border);
+  --font-sans: 'Noto Sans KR', sans-serif;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* MoMA-inspired bold typography */
+.heading-display {
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+.heading-section {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Smooth scroll offset for fixed nav */
+section[id] {
+  scroll-margin-top: 80px;
+}
+
+/* Gallery grid hover */
+.gallery-item {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.gallery-item:hover {
+  transform: scale(1.03);
+}
+
+/* Navigation link underline animation */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.1s; }
+.animate-delay-2 { animation-delay: 0.2s; }
+.animate-delay-3 { animation-delay: 0.3s; }
+.animate-delay-4 { animation-delay: 0.4s; }
+
+/* Counter animation placeholder */
+@keyframes countUp {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
