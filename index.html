@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미술마을 미술학원</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 네비게이션 -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">🎨</span>
+                <span class="logo-text">미술마을</span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">학원소개</a></li>
+                <li><a href="#programs">교육과정</a></li>
+                <li><a href="#gallery">갤러리</a></li>
+                <li><a href="#teachers">강사진</a></li>
+                <li><a href="#contact">상담문의</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">아이들의 꿈을<br>그림으로 피워내는 곳</h1>
+            <p class="hero-subtitle">미술마을 미술학원에서 창의력과 감성을 키워보세요</p>
+            <div class="hero-buttons">
+                <a href="#programs" class="btn btn-primary">교육과정 보기</a>
+                <a href="#contact" class="btn btn-outline">무료 상담 신청</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 학원소개 -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">학원소개</h2>
+            <p class="section-subtitle">미술마을은 아이들의 창의성과 예술적 감성을 키워주는 전문 미술교육기관입니다</p>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">✏️</div>
+                    <h3>창의 미술 교육</h3>
+                    <p>아이들의 자유로운 상상력을 존중하며, 체계적인 커리큘럼으로 창의력을 발달시킵니다.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👩‍🎨</div>
+                    <h3>전문 강사진</h3>
+                    <p>미술 전공 석사 이상의 전문 강사진이 소수정예로 밀착 지도합니다.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🏆</div>
+                    <h3>입시 실적</h3>
+                    <p>서울대, 홍대, 국민대 등 주요 미대 합격자를 다수 배출하고 있습니다.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">🎯</div>
+                    <h3>맞춤형 교육</h3>
+                    <p>학생 개개인의 수준과 목표에 맞는 1:1 맞춤 커리큘럼을 제공합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 교육과정 -->
+    <section class="section programs" id="programs">
+        <div class="container">
+            <h2 class="section-title">교육과정</h2>
+            <p class="section-subtitle">연령과 목표에 맞는 다양한 프로그램을 운영합니다</p>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-badge">유아</div>
+                    <h3>키즈 아트 (5~7세)</h3>
+                    <ul>
+                        <li>오감 놀이 미술</li>
+                        <li>색채 감각 발달</li>
+                        <li>창의 표현 활동</li>
+                        <li>점토 & 만들기</li>
+                    </ul>
+                    <div class="program-info">
+                        <span>주 2회 / 60분 수업</span>
+                    </div>
+                </div>
+                <div class="program-card featured">
+                    <div class="program-badge">초등</div>
+                    <h3>주니어 아트 (8~13세)</h3>
+                    <ul>
+                        <li>기초 소묘 & 수채화</li>
+                        <li>창의 미술 프로젝트</li>
+                        <li>미술 대회 준비반</li>
+                        <li>디지털 아트 입문</li>
+                    </ul>
+                    <div class="program-info">
+                        <span>주 2~3회 / 90분 수업</span>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-badge">중고등</div>
+                    <h3>입시 미술 (14~19세)</h3>
+                    <ul>
+                        <li>기초 디자인</li>
+                        <li>석고 소묘</li>
+                        <li>수채화 & 정밀묘사</li>
+                        <li>포트폴리오 제작</li>
+                    </ul>
+                    <div class="program-info">
+                        <span>주 3~5회 / 120분 수업</span>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-badge">성인</div>
+                    <h3>성인 취미반</h3>
+                    <ul>
+                        <li>유화 & 아크릴화</li>
+                        <li>수채화 클래스</li>
+                        <li>드로잉 기초반</li>
+                        <li>캘리그라피</li>
+                    </ul>
+                    <div class="program-info">
+                        <span>주 1~2회 / 120분 수업</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 갤러리 -->
+    <section class="section gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">학생 작품 갤러리</h2>
+            <p class="section-subtitle">미술마을 학생들의 멋진 작품들을 소개합니다</p>
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">전체</button>
+                <button class="filter-btn" data-filter="kids">유아부</button>
+                <button class="filter-btn" data-filter="junior">초등부</button>
+                <button class="filter-btn" data-filter="senior">입시부</button>
+                <button class="filter-btn" data-filter="adult">성인부</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="kids">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #FFE66D);">
+                        <span>유아부 작품 1</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="junior">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4ECDC4, #556270);">
+                        <span>초등부 작품 1</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="senior">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                        <span>입시부 작품 1</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="adult">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                        <span>성인부 작품 1</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="kids">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                        <span>유아부 작품 2</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="junior">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #fa709a, #fee140);">
+                        <span>초등부 작품 2</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="senior">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #a18cd1, #fbc2eb);">
+                        <span>입시부 작품 2</span>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="adult">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #ffecd2, #fcb69f);">
+                        <span>성인부 작품 2</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 강사진 -->
+    <section class="section teachers" id="teachers">
+        <div class="container">
+            <h2 class="section-title">강사진 소개</h2>
+            <p class="section-subtitle">경험이 풍부한 전문 강사진이 함께합니다</p>
+            <div class="teachers-grid">
+                <div class="teacher-card">
+                    <div class="teacher-photo">
+                        <div class="teacher-placeholder">👩‍🏫</div>
+                    </div>
+                    <h3>김미영 원장</h3>
+                    <p class="teacher-title">홍익대학교 미술학 석사</p>
+                    <p class="teacher-desc">20년 이상의 미술 교육 경력으로 아이들의 잠재력을 이끌어냅니다.</p>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-photo">
+                        <div class="teacher-placeholder">👨‍🎨</div>
+                    </div>
+                    <h3>박준혁 선생님</h3>
+                    <p class="teacher-title">서울대학교 서양화과 졸업</p>
+                    <p class="teacher-desc">입시 미술 전문 강사로 다수의 미대 합격생을 배출했습니다.</p>
+                </div>
+                <div class="teacher-card">
+                    <div class="teacher-photo">
+                        <div class="teacher-placeholder">👩‍🎨</div>
+                    </div>
+                    <h3>이수진 선생님</h3>
+                    <p class="teacher-title">국민대학교 디자인학과 석사</p>
+                    <p class="teacher-desc">아이들의 창의력을 키워주는 따뜻한 수업을 진행합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 상담문의 -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">상담 문의</h2>
+            <p class="section-subtitle">궁금한 점이 있으시면 언제든 문의해주세요</p>
+            <div class="contact-grid">
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" placeholder="학생 이름을 입력해주세요" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="program">관심 과정</label>
+                            <select id="program" name="program" required>
+                                <option value="">과정을 선택해주세요</option>
+                                <option value="kids">키즈 아트 (5~7세)</option>
+                                <option value="junior">주니어 아트 (8~13세)</option>
+                                <option value="senior">입시 미술 (14~19세)</option>
+                                <option value="adult">성인 취미반</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">문의 내용</label>
+                            <textarea id="message" name="message" rows="4" placeholder="궁금한 점을 자유롭게 작성해주세요"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">상담 신청하기</button>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <h3>📍 오시는 길</h3>
+                        <p>서울특별시 강남구 미술로 123<br>미술마을빌딩 2층</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📞 전화 상담</h3>
+                        <p>02-1234-5678</p>
+                        <p class="info-sub">평일 09:00 ~ 21:00 / 토 09:00 ~ 18:00</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📱 카카오톡 상담</h3>
+                        <p>카카오톡 채널: @미술마을</p>
+                        <p class="info-sub">24시간 문의 가능</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🚌 대중교통</h3>
+                        <p>지하철 2호선 미술역 3번 출구<br>도보 5분</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <span class="logo-icon">🎨</span>
+                    <span class="logo-text">미술마을 미술학원</span>
+                    <p>아이들의 꿈을 그림으로 피워내는 곳</p>
+                </div>
+                <div class="footer-links">
+                    <h4>바로가기</h4>
+                    <ul>
+                        <li><a href="#about">학원소개</a></li>
+                        <li><a href="#programs">교육과정</a></li>
+                        <li><a href="#gallery">갤러리</a></li>
+                        <li><a href="#contact">상담문의</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>연락처</h4>
+                    <p>📞 02-1234-5678</p>
+                    <p>📧 info@arttown.kr</p>
+                    <p>📍 서울시 강남구 미술로 123</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 미술마을 미술학원. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
