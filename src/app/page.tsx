@@ -98,7 +98,7 @@ function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         <a href="#" className="flex items-center gap-3">
-          <VillageLogo size={36} color="var(--foreground)" />
+          <VillageLogo size={48} color="var(--foreground)" />
           <span className="heading-section text-lg tracking-tight">
             미술마을
           </span>
@@ -225,7 +225,7 @@ function Hero() {
           <div className="relative w-full aspect-square max-w-lg mx-auto">
             <div className="absolute inset-8 bg-white rounded-3xl shadow-2xl overflow-hidden border border-border">
               <div className="h-full flex flex-col items-center justify-center p-10 text-center">
-                <VillageLogo size={80} color="var(--foreground)" className="mb-6 opacity-80" />
+                <VillageLogo size={100} color="var(--foreground)" className="mb-6 opacity-80" />
                 <p className="heading-section text-2xl mb-2">미술마을</p>
                 <p className="text-text-secondary text-sm">
                   모든 아이는 예술가입니다
@@ -880,7 +880,7 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <VillageLogo size={32} color="white" />
+              <VillageLogo size={44} color="white" />
               <span className="heading-section text-lg">미술마을</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed">
