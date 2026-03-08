@@ -1,6 +1,71 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+
+/* ───────────────────────────────────────────
+   Art Village Logo
+   ─────────────────────────────────────────── */
+function VillageLogo({
+  className = "",
+  color = "currentColor",
+  size = 40,
+}: {
+  className?: string;
+  color?: string;
+  size?: number;
+}) {
+  const isWhite = color === "white" || color === "#fff" || color === "#ffffff";
+  return (
+    <Image
+      src="/logo.svg"
+      alt="미술마을 로고"
+      width={size}
+      height={size}
+      className={`${className} ${isWhite ? "invert" : ""}`}
+      style={{ width: size, height: size }}
+    />
+  );
+}
+
+/* ───────────────────────────────────────────
+   Village Silhouette Pattern (background decoration)
+   ─────────────────────────────────────────── */
+function VillagePattern({ className = "" }: { className?: string }) {
+  return (
+    <div className={`pointer-events-none select-none ${className}`}>
+      <svg
+        width="100%"
+        height="60"
+        viewBox="0 0 600 60"
+        fill="none"
+        preserveAspectRatio="xMidYMid meet"
+        className="opacity-[0.07]"
+      >
+        {[0, 150, 300, 450].map((offset) => (
+          <g key={offset} transform={`translate(${offset}, 0)`} strokeLinecap="round" strokeLinejoin="round">
+            {/* 크로키북 */}
+            <rect x="5" y="20" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="1.4" />
+            <line x1="8" y1="20" x2="8" y2="40" stroke="currentColor" strokeWidth="1" />
+            <circle cx="8" cy="25" r="0.8" fill="currentColor" />
+            <circle cx="8" cy="30" r="0.8" fill="currentColor" />
+            <circle cx="8" cy="35" r="0.8" fill="currentColor" />
+            {/* 연필 */}
+            <rect x="28" y="24" width="16" height="16" rx="0.5" stroke="currentColor" strokeWidth="1.4" />
+            <path d="M28 24L36 12L44 24" stroke="currentColor" strokeWidth="1.4" />
+            {/* 지우개 */}
+            <rect x="55" y="18" width="14" height="16" rx="1" stroke="currentColor" strokeWidth="1.4" />
+            <path d="M55 18L57 15L59 18M65 18L67 15L69 18" stroke="currentColor" strokeWidth="1" />
+            {/* 팔레트 */}
+            <circle cx="85" cy="22" r="6" stroke="currentColor" strokeWidth="1.4" />
+            <line x1="85" y1="13" x2="85" y2="15" stroke="currentColor" strokeWidth="1" />
+            <line x1="93" y1="22" x2="91" y2="22" stroke="currentColor" strokeWidth="1" />
+          </g>
+        ))}
+      </svg>
+    </div>
+  );
+}
 
 /* ───────────────────────────────────────────
    Navigation
@@ -33,9 +98,7 @@ function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
         <a href="#" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-            <span className="text-white font-bold text-sm">미</span>
-          </div>
+          <VillageLogo size={36} color="var(--foreground)" />
           <span className="heading-section text-lg tracking-tight">
             미술마을
           </span>
@@ -121,6 +184,11 @@ function Hero() {
         <div className="absolute top-1/3 right-1/4 w-[200px] h-[200px] rounded-full bg-accent/10" />
       </div>
 
+      {/* Village silhouette pattern decoration */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <VillagePattern />
+      </div>
+
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-20 grid lg:grid-cols-2 gap-12 items-center">
         <div className="animate-fade-in-up">
           <p className="text-accent font-bold text-sm tracking-widest uppercase mb-6">
@@ -157,34 +225,31 @@ function Hero() {
           <div className="relative w-full aspect-square max-w-lg mx-auto">
             <div className="absolute inset-8 bg-white rounded-3xl shadow-2xl overflow-hidden border border-border">
               <div className="h-full flex flex-col items-center justify-center p-10 text-center">
-                <div className="w-24 h-24 rounded-full bg-accent-warm/30 flex items-center justify-center mb-6">
-                  <svg
-                    width="48"
-                    height="48"
-                    viewBox="0 0 48 48"
-                    fill="none"
-                    className="text-accent"
-                  >
-                    <path
-                      d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm-4 30c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm8-16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm6 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </div>
+                <VillageLogo size={80} color="var(--foreground)" className="mb-6 opacity-80" />
                 <p className="heading-section text-2xl mb-2">미술마을</p>
                 <p className="text-text-secondary text-sm">
                   모든 아이는 예술가입니다
                 </p>
               </div>
             </div>
-            <div className="absolute top-0 left-0 w-20 h-20 bg-accent rounded-2xl rotate-12 flex items-center justify-center text-white text-2xl shadow-lg">
-              🎨
+            {/* Decorative floating elements */}
+            <div className="absolute top-0 left-0 w-20 h-20 bg-accent rounded-2xl rotate-12 flex items-center justify-center shadow-lg">
+              {/* Palette icon */}
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <path d="M18 3C9.72 3 3 9.72 3 18s6.72 15 15 15 15-6.72 15-15S26.28 3 18 3zm-3 22.5c-2.48 0-4.5-2.02-4.5-4.5s2.02-4.5 4.5-4.5 4.5 2.02 4.5 4.5-2.02 4.5-4.5 4.5zm6-12c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm4.5 7.5c-1.24 0-2.25-1.01-2.25-2.25S24.26 16.5 25.5 16.5s2.25 1.01 2.25 2.25S26.74 21 25.5 21z" fill="white" />
+              </svg>
             </div>
-            <div className="absolute bottom-4 right-0 w-16 h-16 bg-accent-warm rounded-full flex items-center justify-center text-white text-xl shadow-lg">
-              ✏️
+            <div className="absolute bottom-4 right-0 w-16 h-16 bg-accent-warm rounded-full flex items-center justify-center shadow-lg">
+              {/* Pencil icon */}
+              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                <path d="M4 20.5V24h3.5L21.63 9.87l-3.5-3.5L4 20.5zM24.13 7.37a.93.93 0 000-1.32l-2.18-2.18a.93.93 0 00-1.32 0l-1.71 1.71 3.5 3.5 1.71-1.71z" fill="white" />
+              </svg>
             </div>
-            <div className="absolute top-1/2 -left-4 w-14 h-14 bg-foreground rounded-xl -rotate-6 flex items-center justify-center text-white text-lg shadow-lg">
-              🖌️
+            <div className="absolute top-1/2 -left-4 w-14 h-14 bg-foreground rounded-xl -rotate-6 flex items-center justify-center shadow-lg">
+              {/* Brush icon */}
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 14c-1.66 0-3 1.34-3 3 0 1.31-1.16 2-2 2 .92 1.22 2.49 2 4 2 2.21 0 4-1.79 4-4 0-1.66-1.34-3-3-3zm13.71-9.37l-1.34-1.34a.996.996 0 00-1.41 0L9 12.25 11.75 15l8.96-8.96a.996.996 0 000-1.41z" fill="white" />
+              </svg>
             </div>
           </div>
         </div>
@@ -225,6 +290,17 @@ function Stats() {
 }
 
 /* ───────────────────────────────────────────
+   Section Label Component (bilingual format per brand guide)
+   ─────────────────────────────────────────── */
+function SectionLabel({ en, ko }: { en: string; ko: string }) {
+  return (
+    <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
+      {en} <span className="normal-case tracking-normal">&mdash; {ko}</span>
+    </p>
+  );
+}
+
+/* ───────────────────────────────────────────
    Philosophy Section
    ─────────────────────────────────────────── */
 function Philosophy() {
@@ -256,7 +332,7 @@ function Philosophy() {
         </svg>
       ),
       title: "창의적 사고력",
-      desc: "미술을 통해 관찰력, 상상력, 문제해결력을 키웁니다. 미술은 생각하는 힘을 기르는 최고의 도구입니다.",
+      desc: "미술을 통해 관찰력, 상상력, 문제해결력을 키웁니다. 미술은 생각하는 힘을 기르는 도구입니다.",
     },
   ];
 
@@ -264,9 +340,7 @@ function Philosophy() {
     <section id="philosophy" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mb-20">
-          <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
-            Philosophy
-          </p>
+          <SectionLabel en="Philosophy" ko="교육철학" />
           <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             원장선생님의
             <br />
@@ -279,12 +353,19 @@ function Philosophy() {
           </p>
         </div>
 
-        <div className="bg-foreground text-white rounded-3xl p-10 lg:p-16 mb-20">
-          <blockquote className="max-w-3xl">
+        <div className="bg-foreground text-white rounded-3xl p-10 lg:p-16 mb-20 relative overflow-hidden">
+          {/* Subtle village pattern in quote block */}
+          <div className="absolute bottom-0 left-0 right-0 opacity-[0.04]">
+            <VillagePattern />
+          </div>
+          <blockquote className="relative max-w-3xl">
+            <svg width="40" height="40" viewBox="0 0 40 40" className="text-accent-warm/30 mb-6">
+              <path d="M10 25c-3.3 0-6-2.7-6-6 0-5.5 4.5-10 10-10v4c-3.3 0-6 2.7-6 6h6v6H10zm16 0c-3.3 0-6-2.7-6-6 0-5.5 4.5-10 10-10v4c-3.3 0-6 2.7-6 6h6v6h-4z" fill="currentColor" />
+            </svg>
             <p className="text-2xl lg:text-3xl font-light leading-relaxed mb-8">
-              &ldquo;아이들에게 그림을 &lsquo;잘&rsquo; 그리게 하는 것이 아니라,
+              아이들에게 그림을 &lsquo;잘&rsquo; 그리게 하는 것이 아니라,
               그림을 통해 세상을 &lsquo;깊이&rsquo; 바라보게 하는 것.
-              그것이 미술마을의 교육입니다.&rdquo;
+              그것이 미술마을의 교육입니다.
             </p>
             <footer className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-bold">
@@ -292,7 +373,7 @@ function Philosophy() {
               </div>
               <div>
                 <p className="font-bold">원장 선생님</p>
-                <p className="text-white/60 text-sm">미술마을 미술학원 대표</p>
+                <p className="text-white/60 text-sm">미술마을 미술학원 대표 &middot; 15년 교육 경력</p>
               </div>
             </footer>
           </blockquote>
@@ -362,9 +443,7 @@ function Curriculum() {
     <section id="curriculum" className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="max-w-3xl mb-20">
-          <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
-            Curriculum
-          </p>
+          <SectionLabel en="Curriculum" ko="커리큘럼" />
           <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             연령별
             <br />
@@ -417,12 +496,12 @@ function Curriculum() {
    ─────────────────────────────────────────── */
 function Gallery() {
   const works = [
-    { color: "bg-rose-200", label: "수채화 — 봄의 정원", age: "초등 3학년" },
-    { color: "bg-blue-200", label: "아크릴 — 바닷속 세계", age: "초등 5학년" },
-    { color: "bg-amber-200", label: "콜라주 — 나의 우주", age: "7세" },
-    { color: "bg-emerald-200", label: "소묘 — 정물화", age: "중등 1학년" },
-    { color: "bg-purple-200", label: "판화 — 동물 친구들", age: "초등 2학년" },
-    { color: "bg-orange-200", label: "입체조형 — 상상의 집", age: "6세" },
+    { color: "bg-rose-200", category: "수채화", label: "봄의 정원", age: "초등 3학년" },
+    { color: "bg-blue-200", category: "아크릴", label: "바닷속 세계", age: "초등 5학년" },
+    { color: "bg-amber-200", category: "콜라주", label: "나의 우주", age: "7세" },
+    { color: "bg-emerald-200", category: "소묘", label: "정물화", age: "중등 1학년" },
+    { color: "bg-purple-200", category: "판화", label: "동물 친구들", age: "초등 2학년" },
+    { color: "bg-orange-200", category: "입체조형", label: "상상의 집", age: "6세" },
   ];
 
   return (
@@ -430,9 +509,7 @@ function Gallery() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16">
           <div>
-            <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
-              Gallery
-            </p>
+            <SectionLabel en="Gallery" ko="학생 작품" />
             <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl">
               학생 작품
             </h2>
@@ -449,6 +526,10 @@ function Gallery() {
               key={i}
               className={`gallery-item ${w.color} rounded-2xl aspect-[4/5] flex flex-col items-center justify-center p-6 cursor-pointer relative overflow-hidden group`}
             >
+              {/* Category badge */}
+              <span className="absolute top-4 left-4 px-2.5 py-1 bg-white/70 backdrop-blur-sm rounded-full text-xs font-bold text-foreground/70">
+                {w.category}
+              </span>
               <svg
                 width="64"
                 height="64"
@@ -478,6 +559,9 @@ function Gallery() {
                 작품 이미지 영역
               </p>
               <div className="absolute inset-0 bg-foreground/80 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl p-6">
+                <p className="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">
+                  {w.category}
+                </p>
                 <p className="text-white font-bold text-lg text-center mb-2">
                   {w.label}
                 </p>
@@ -487,7 +571,7 @@ function Gallery() {
           ))}
         </div>
 
-        <p className="text-center text-text-secondary text-sm mt-8">
+        <p className="text-text-secondary text-sm mt-8">
           * 실제 학생 작품 이미지로 교체 예정
         </p>
       </div>
@@ -500,11 +584,16 @@ function Gallery() {
    ─────────────────────────────────────────── */
 function SNS() {
   return (
-    <section id="sns" className="py-24 lg:py-32 bg-foreground text-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <section id="sns" className="py-24 lg:py-32 bg-foreground text-white relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute top-0 left-0 right-0 text-white">
+        <VillagePattern />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-accent-warm font-bold text-sm tracking-widest uppercase mb-4">
-            Follow Us
+            Follow Us <span className="normal-case tracking-normal">&mdash; SNS</span>
           </p>
           <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
             미술마을의
@@ -606,7 +695,7 @@ function Testimonials() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
-            Reviews
+            Reviews <span className="normal-case tracking-normal">&mdash; 학부모 후기</span>
           </p>
           <h2 className="heading-display text-4xl sm:text-5xl mb-6">
             학부모님 후기
@@ -650,9 +739,7 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
-              Contact
-            </p>
+            <SectionLabel en="Contact" ko="오시는 길" />
             <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-8">
               오시는 길
             </h2>
@@ -783,14 +870,17 @@ function Contact() {
    ─────────────────────────────────────────── */
 function Footer() {
   return (
-    <footer className="bg-foreground text-white py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12">
+    <footer className="bg-foreground text-white py-16 relative overflow-hidden">
+      {/* Subtle village pattern */}
+      <div className="absolute bottom-0 left-0 right-0 text-white">
+        <VillagePattern />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
-                <span className="text-white font-bold text-sm">미</span>
-              </div>
+              <VillageLogo size={32} color="white" />
               <span className="heading-section text-lg">미술마을</span>
             </div>
             <p className="text-white/50 text-sm leading-relaxed">
@@ -839,7 +929,7 @@ function Footer() {
 
         <div className="border-t border-white/10 pt-8 text-center">
           <p className="text-white/40 text-xs">
-            &copy; 2025 미술마을 미술학원. All rights reserved.
+            &copy; 2026 미술마을 미술학원. All rights reserved.
           </p>
         </div>
       </div>
