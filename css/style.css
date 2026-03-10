@@ -169,6 +169,23 @@ img {
     width: 100%;
 }
 
+.nav-social {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.social-link {
+    color: var(--text-light);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.social-link:hover {
+    color: var(--primary);
+}
+
 .nav-toggle {
     display: none;
     flex-direction: column;
@@ -578,6 +595,43 @@ img {
     margin-top: 4px;
 }
 
+/* SNS Links */
+.sns-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.sns-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: var(--transition);
+    color: white;
+}
+
+.sns-btn.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.sns-btn.instagram:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(225, 48, 108, 0.4);
+}
+
+.sns-btn.blog {
+    background: #03C75A;
+}
+
+.sns-btn.blog:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(3, 199, 90, 0.4);
+}
+
 /* === Footer === */
 .footer {
     background: #1a1a2e;
@@ -625,6 +679,30 @@ img {
 .footer-contact p {
     font-size: 0.9rem;
     margin-bottom: 8px;
+}
+
+.footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.footer-social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    transition: var(--transition);
+}
+
+.footer-social-link:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
 }
 
 .footer-bottom {
@@ -678,6 +756,10 @@ img {
 
     .nav-links.open {
         display: flex;
+    }
+
+    .nav-social {
+        display: none;
     }
 
     .nav-toggle {
@@ -734,5 +816,9 @@ img {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+    }
+
+    .sns-links {
+        flex-direction: column;
     }
 }
