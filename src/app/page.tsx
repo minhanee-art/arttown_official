@@ -786,7 +786,7 @@ function Contact() {
           <div className="space-y-8">
             <div className="rounded-2xl overflow-hidden aspect-video">
               <iframe
-                src="https://map.naver.com/p/entry/place/1156604364?c=15.00,0,0,0,dh"
+                src="https://www.google.com/maps?q=대구+수성구+상록로+67-1&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
