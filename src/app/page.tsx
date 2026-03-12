@@ -786,13 +786,12 @@ function Contact() {
           <div className="space-y-8">
             <div className="rounded-2xl overflow-hidden aspect-video">
               <iframe
-                src="https://www.google.com/maps?q=대구+수성구+상록로+67-1&output=embed"
+                src="https://map.kakao.com/?urlX=962041&urlY=764781&name=미술마을미술학원&map_type=TYPE_MAP&from=roughmap&srcid=1156604364&itemId=1156604364&q=대구+수성구+상록로+67-1"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
                 title="미술마을 미술학원 위치"
               />
             </div>
