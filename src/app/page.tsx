@@ -748,30 +748,24 @@ function Contact() {
               <div>
                 <h3 className="heading-section text-lg mb-2">주소</h3>
                 <p className="text-text-secondary">
-                  서울특별시 OO구 OO로 123, 2층
+                  대구 수성구 상록로 67-1 1층
                 </p>
               </div>
               <div>
                 <h3 className="heading-section text-lg mb-2">연락처</h3>
                 <p className="text-text-secondary">
-                  전화: 02-1234-5678
-                  <br />
-                  카카오톡: 미술마을
+                  전화: 010-5766-0060
                 </p>
               </div>
               <div>
                 <h3 className="heading-section text-lg mb-2">운영시간</h3>
                 <p className="text-text-secondary">
-                  평일: 14:00 - 20:00
-                  <br />
-                  토요일: 10:00 - 17:00
-                  <br />
-                  일요일 및 공휴일 휴무
+                  평일 (월-금): 12:30 - 18:30
                 </p>
               </div>
 
               <a
-                href="https://map.naver.com"
+                href="https://map.naver.com/p/search/%EB%AF%B8%EC%88%A0%EB%A7%88%EC%9D%84%EB%AF%B8%EC%88%A0%ED%95%99%EC%9B%90/place/1156604364"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-4 bg-green-500 text-white font-medium rounded-2xl hover:bg-green-600 transition-colors"
@@ -788,23 +782,17 @@ function Contact() {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-border rounded-2xl aspect-video flex items-center justify-center">
-              <div className="text-center text-text-secondary">
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="mx-auto mb-3 text-text-secondary/50"
-                >
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="2" />
-                </svg>
-                <p className="text-sm">네이버 지도 영역</p>
-                <p className="text-xs mt-1">
-                  (네이버 지도 API 또는 iframe 삽입 예정)
-                </p>
-              </div>
+            <div className="rounded-2xl aspect-video overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3233.5!2d128.581175!3d35.890332!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z64yA6rWsIOyImOyEseq1sCDsg4HroZ3roZwgNjctMQ!5e0!3m2!1sko!2skr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="미술마을 미술학원 위치"
+              />
             </div>
 
             <div className="bg-white rounded-2xl border border-border p-8">
@@ -904,7 +892,7 @@ function Footer() {
             <h4 className="font-bold text-sm mb-4 text-white/80">SNS</h4>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/arttown_academy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
@@ -915,7 +903,7 @@ function Footer() {
                 </svg>
               </a>
               <a
-                href="https://blog.naver.com"
+                href="https://blog.naver.com/arttown_academy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
@@ -927,8 +915,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center">
-          <p className="text-white/40 text-xs">
+        <div className="border-t border-white/10 pt-8">
+          <div className="text-center mb-4">
+            <p className="text-white/40 text-xs leading-relaxed">
+              미술마을 미술학원 | 대구 수성구 상록로 67-1 1층 | 전화: 010-5766-0060
+            </p>
+          </div>
+          <p className="text-white/40 text-xs text-center">
             &copy; 2026 미술마을 미술학원. All rights reserved.
           </p>
         </div>
