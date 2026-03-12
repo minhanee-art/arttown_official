@@ -608,7 +608,7 @@ function SNS() {
 
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/arttown_academy"
             target="_blank"
             rel="noopener noreferrer"
             className="group block bg-white/10 hover:bg-white/15 rounded-3xl p-10 transition-colors duration-300"
@@ -621,7 +621,7 @@ function SNS() {
               </div>
               <div>
                 <h3 className="heading-section text-xl">Instagram</h3>
-                <p className="text-white/50 text-sm">@misulmaul_art</p>
+                <p className="text-white/50 text-sm">@arttown_academy</p>
               </div>
             </div>
             <p className="text-white/70 leading-relaxed mb-6">
@@ -637,7 +637,7 @@ function SNS() {
           </a>
 
           <a
-            href="https://blog.naver.com"
+            href="https://blog.naver.com/arttown_academy"
             target="_blank"
             rel="noopener noreferrer"
             className="group block bg-white/10 hover:bg-white/15 rounded-3xl p-10 transition-colors duration-300"
@@ -894,7 +894,7 @@ function Footer() {
             <h4 className="font-bold text-sm mb-4 text-white/80">SNS</h4>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/arttown_academy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
@@ -905,7 +905,7 @@ function Footer() {
                 </svg>
               </a>
               <a
-                href="https://blog.naver.com"
+                href="https://blog.naver.com/arttown_academy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
