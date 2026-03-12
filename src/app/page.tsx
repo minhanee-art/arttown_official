@@ -784,17 +784,29 @@ function Contact() {
           </div>
 
           <div className="space-y-8">
-            <div className="rounded-2xl overflow-hidden aspect-video">
-              <iframe
-                src="https://map.kakao.com/?urlX=962041&urlY=764781&name=미술마을미술학원&map_type=TYPE_MAP&from=roughmap&srcid=1156604364&itemId=1156604364&q=대구+수성구+상록로+67-1"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                title="미술마을 미술학원 위치"
-              />
-            </div>
+            <a
+              href="https://map.kakao.com/?q=대구+수성구+상록로+67-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block rounded-2xl overflow-hidden aspect-video bg-accent-soft/30 relative group cursor-pointer hover:shadow-lg transition-shadow"
+            >
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
+                <div className="w-16 h-16 rounded-full bg-yellow-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#3B1E1E" />
+                    <circle cx="12" cy="9" r="2.5" fill="#FEE500" />
+                  </svg>
+                </div>
+                <p className="font-bold text-lg text-foreground mb-1">미술마을 미술학원</p>
+                <p className="text-text-secondary text-sm mb-4">대구 수성구 상록로 67-1 1층</p>
+                <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-yellow-400 text-foreground font-bold text-sm rounded-full group-hover:bg-yellow-500 transition-colors">
+                  카카오맵에서 보기
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </div>
+            </a>
 
             <div className="bg-white rounded-2xl border border-border p-8">
               <h3 className="heading-section text-xl mb-6">상담 문의</h3>
