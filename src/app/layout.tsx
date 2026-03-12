@@ -10,7 +10,6 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   formatDetection: {
-    telephone: false,
     address: false,
   },
   openGraph: {
