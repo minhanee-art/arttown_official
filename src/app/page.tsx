@@ -748,30 +748,26 @@ function Contact() {
               <div>
                 <h3 className="heading-section text-lg mb-2">주소</h3>
                 <p className="text-text-secondary">
-                  서울특별시 OO구 OO로 123, 2층
+                  대구 수성구 상록로 67-1 1층
                 </p>
               </div>
               <div>
                 <h3 className="heading-section text-lg mb-2">연락처</h3>
                 <p className="text-text-secondary">
-                  전화: 02-1234-5678
-                  <br />
-                  카카오톡: 미술마을
+                  전화: 010-5766-0060
                 </p>
               </div>
               <div>
                 <h3 className="heading-section text-lg mb-2">운영시간</h3>
                 <p className="text-text-secondary">
-                  평일: 14:00 - 20:00
+                  평일(월-금): 12:30 - 18:30
                   <br />
-                  토요일: 10:00 - 17:00
-                  <br />
-                  일요일 및 공휴일 휴무
+                  토요일, 일요일 및 공휴일 휴무
                 </p>
               </div>
 
               <a
-                href="https://map.naver.com"
+                href="https://map.naver.com/p/search/%EB%AF%B8%EC%88%A0%EB%A7%88%EC%9D%84%EB%AF%B8%EC%88%A0%ED%95%99%EC%9B%90/place/1156604364"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-3 px-6 py-4 bg-green-500 text-white font-medium rounded-2xl hover:bg-green-600 transition-colors"
@@ -927,7 +923,13 @@ function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-center">
+        <div className="border-t border-white/10 pt-8 text-center space-y-2">
+          <p className="text-white/40 text-xs">
+            미술마을 미술학원 | 대구 수성구 상록로 67-1 1층 | 대표 연락처: 010-5766-0060
+          </p>
+          <p className="text-white/40 text-xs">
+            영업시간: 평일(월-금) 12:30 - 18:30
+          </p>
           <p className="text-white/40 text-xs">
             &copy; 2026 미술마을 미술학원. All rights reserved.
           </p>
