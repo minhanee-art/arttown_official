@@ -784,23 +784,17 @@ function Contact() {
           </div>
 
           <div className="space-y-8">
-            <div className="bg-border rounded-2xl aspect-video flex items-center justify-center">
-              <div className="text-center text-text-secondary">
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="mx-auto mb-3 text-text-secondary/50"
-                >
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" stroke="currentColor" strokeWidth="2" />
-                  <circle cx="12" cy="9" r="2.5" stroke="currentColor" strokeWidth="2" />
-                </svg>
-                <p className="text-sm">네이버 지도 영역</p>
-                <p className="text-xs mt-1">
-                  (네이버 지도 API 또는 iframe 삽입 예정)
-                </p>
-              </div>
+            <div className="rounded-2xl overflow-hidden aspect-video">
+              <iframe
+                src="https://map.naver.com/p/entry/place/1156604364?c=15.00,0,0,0,dh"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="미술마을 미술학원 위치"
+              />
             </div>
 
             <div className="bg-white rounded-2xl border border-border p-8">
