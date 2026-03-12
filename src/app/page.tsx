@@ -733,6 +733,43 @@ function Testimonials() {
    Contact / Map Section
    ─────────────────────────────────────────── */
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    childAge: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.phone) {
+      alert("성함과 연락처는 필수 입력 항목입니다.");
+      return;
+    }
+
+    const text = [
+      `[미술마을 상담문의]`,
+      `성함: ${formData.name}`,
+      `연락처: ${formData.phone}`,
+      formData.childAge ? `자녀 나이: ${formData.childAge}` : "",
+      formData.message ? `문의 내용: ${formData.message}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    navigator.clipboard.writeText(text).catch(() => {});
+
+    setSubmitted(true);
+    window.open("https://open.kakao.com/o/sSGK85ki", "_blank");
+  };
+
+  const handleReset = () => {
+    setFormData({ name: "", phone: "", childAge: "", message: "" });
+    setSubmitted(false);
+  };
+
   return (
     <section id="contact" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -744,54 +781,110 @@ function Contact() {
             </h2>
 
             <div className="bg-white rounded-2xl border border-border p-8">
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    학부모님 성함
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
-                    placeholder="이름을 입력해주세요"
-                  />
+              {submitted ? (
+                <div className="text-center py-8 space-y-4">
+                  <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                      <path
+                        d="M16 4C9.373 4 4 8.373 4 13.6c0 3.36 2.16 6.32 5.44 8.08-.24.88-.88 3.2-.96 3.52-.08.36.12.36.28.28.12-.08 1.92-1.28 2.72-1.84.88.16 1.76.24 2.56.24 6.627 0 12-3.973 12-8.88V13.6C26 8.373 22.627 4 16 4z"
+                        fill="#FFE812"
+                      />
+                      <path
+                        d="M11 12h2v5h-2v-5zm4 0h2v5h-2v-5zm4 0h2v5h-2v-5z"
+                        fill="#3C1E1E"
+                      />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold">카카오톡 오픈채팅방으로 이동했습니다</h3>
+                  <p className="text-text-secondary text-sm leading-relaxed">
+                    문의 내용이 클립보드에 복사되었습니다.
+                    <br />
+                    채팅방에 붙여넣기(Ctrl+V)하여 상담을 신청해주세요.
+                  </p>
+                  <div className="flex gap-3 justify-center pt-2">
+                    <button
+                      onClick={() => window.open("https://open.kakao.com/o/sSGK85ki", "_blank")}
+                      className="px-5 py-2.5 bg-[#FFE812] text-[#3C1E1E] font-medium rounded-xl hover:bg-[#FFD700] transition-colors"
+                    >
+                      채팅방 다시 열기
+                    </button>
+                    <button
+                      onClick={handleReset}
+                      className="px-5 py-2.5 border border-border rounded-xl hover:bg-gray-50 transition-colors"
+                    >
+                      새 문의 작성
+                    </button>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    연락처
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
-                    placeholder="010-0000-0000"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    자녀 나이
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
-                    placeholder="예: 7세, 초등 3학년"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    문의 내용
-                  </label>
-                  <textarea
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors resize-none"
-                    placeholder="궁금한 점을 남겨주세요"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3.5 bg-foreground text-white font-medium rounded-xl hover:bg-foreground/85 transition-colors"
-                >
-                  상담 신청하기
-                </button>
-              </form>
+              ) : (
+                <form className="space-y-4" onSubmit={handleSubmit}>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5">
+                      학부모님 성함 <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
+                      placeholder="이름을 입력해주세요"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5">
+                      연락처 <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
+                      placeholder="010-0000-0000"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5">
+                      자녀 나이
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.childAge}
+                      onChange={(e) => setFormData({ ...formData, childAge: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
+                      placeholder="예: 7세, 초등 3학년"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-1.5">
+                      문의 내용
+                    </label>
+                    <textarea
+                      rows={3}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors resize-none"
+                      placeholder="궁금한 점을 남겨주세요"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3.5 bg-[#FFE812] text-[#3C1E1E] font-bold rounded-xl hover:bg-[#FFD700] transition-colors flex items-center justify-center gap-2"
+                  >
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path
+                        d="M12 3C6.48 3 2 6.48 2 10.8c0 2.76 1.8 5.16 4.48 6.6-.2.72-.72 2.64-.8 2.88-.08.28.08.28.2.2.12-.04 1.56-1.04 2.24-1.48.72.12 1.44.2 2.08.2 5.52 0 10-3.36 10-7.6V10.8C22 6.48 17.52 3 12 3z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                    카카오톡으로 상담 신청하기
+                  </button>
+                  <p className="text-xs text-text-secondary text-center">
+                    버튼을 누르면 카카오톡 오픈채팅방으로 이동합니다
+                  </p>
+                </form>
+              )}
             </div>
           </div>
 
