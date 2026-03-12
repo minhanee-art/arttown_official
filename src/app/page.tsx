@@ -83,7 +83,6 @@ function Navigation() {
   const links = [
     { href: "#philosophy", label: "교육철학" },
     { href: "#curriculum", label: "커리큘럼" },
-    { href: "#gallery", label: "갤러리" },
     { href: "#sns", label: "SNS" },
     { href: "#contact", label: "오시는 길" },
   ];
@@ -739,77 +738,12 @@ function Contact() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16">
           <div>
-            <SectionLabel en="Contact" ko="오시는 길" />
+            <SectionLabel en="Contact" ko="상담 문의" />
             <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-8">
-              오시는 길
+              상담 문의
             </h2>
 
-            <div className="space-y-8">
-              <div>
-                <h3 className="heading-section text-lg mb-2">주소</h3>
-                <p className="text-text-secondary">
-                  대구 수성구 상록로 67-1 1층
-                </p>
-              </div>
-              <div>
-                <h3 className="heading-section text-lg mb-2">연락처</h3>
-                <p className="text-text-secondary">
-                  전화: 010-5766-0060
-                </p>
-              </div>
-              <div>
-                <h3 className="heading-section text-lg mb-2">운영시간</h3>
-                <p className="text-text-secondary">
-                  평일(월-금): 12:30 - 18:30
-                  <br />
-                  토요일, 일요일 및 공휴일 휴무
-                </p>
-              </div>
-
-              <a
-                href="https://map.naver.com/p/search/%EB%AF%B8%EC%88%A0%EB%A7%88%EC%9D%84%EB%AF%B8%EC%88%A0%ED%95%99%EC%9B%90/place/1156604364"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-4 bg-green-500 text-white font-medium rounded-2xl hover:bg-green-600 transition-colors"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                    fill="currentColor"
-                  />
-                </svg>
-                네이버 지도에서 찾기
-              </a>
-            </div>
-          </div>
-
-          <div className="space-y-8">
-            <a
-              href="https://map.kakao.com/?q=대구+수성구+상록로+67-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block rounded-2xl overflow-hidden aspect-video bg-accent-soft/30 relative group cursor-pointer hover:shadow-lg transition-shadow"
-            >
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                <div className="w-16 h-16 rounded-full bg-yellow-400 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#3B1E1E" />
-                    <circle cx="12" cy="9" r="2.5" fill="#FEE500" />
-                  </svg>
-                </div>
-                <p className="font-bold text-lg text-foreground mb-1">미술마을 미술학원</p>
-                <p className="text-text-secondary text-sm mb-4">대구 수성구 상록로 67-1 1층</p>
-                <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-yellow-400 text-foreground font-bold text-sm rounded-full group-hover:bg-yellow-500 transition-colors">
-                  카카오맵에서 보기
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-
             <div className="bg-white rounded-2xl border border-border p-8">
-              <h3 className="heading-section text-xl mb-6">상담 문의</h3>
               <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div>
                   <label className="block text-sm font-medium mb-1.5">
@@ -860,6 +794,51 @@ function Contact() {
               </form>
             </div>
           </div>
+
+          <div>
+            <SectionLabel en="Directions" ko="오시는 길" />
+            <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-8">
+              오시는 길
+            </h2>
+
+            <div className="space-y-8">
+              <div>
+                <h3 className="heading-section text-lg mb-2">주소</h3>
+                <p className="text-text-secondary">
+                  대구 수성구 상록로 67-1 1층
+                </p>
+              </div>
+              <div>
+                <h3 className="heading-section text-lg mb-2">연락처</h3>
+                <p className="text-text-secondary">
+                  전화: 010-5766-0060
+                </p>
+              </div>
+              <div>
+                <h3 className="heading-section text-lg mb-2">운영시간</h3>
+                <p className="text-text-secondary">
+                  평일(월-금): 12:30 - 18:30
+                  <br />
+                  토요일, 일요일 및 공휴일 휴무
+                </p>
+              </div>
+
+              <a
+                href="https://map.naver.com/p/search/%EB%AF%B8%EC%88%A0%EB%A7%88%EC%9D%84%EB%AF%B8%EC%88%A0%ED%95%99%EC%9B%90/place/1156604364"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-4 bg-green-500 text-white font-medium rounded-2xl hover:bg-green-600 transition-colors"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    fill="currentColor"
+                  />
+                </svg>
+                네이버 지도에서 찾기
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -896,7 +875,6 @@ function Footer() {
             <div className="space-y-2.5">
               <a href="#philosophy" className="block text-white/50 text-sm hover:text-white transition-colors">교육철학</a>
               <a href="#curriculum" className="block text-white/50 text-sm hover:text-white transition-colors">커리큘럼</a>
-              <a href="#gallery" className="block text-white/50 text-sm hover:text-white transition-colors">갤러리</a>
               <a href="#contact" className="block text-white/50 text-sm hover:text-white transition-colors">오시는 길</a>
             </div>
           </div>
@@ -999,9 +977,7 @@ export default function Home() {
         <AnimatedSection>
           <Curriculum />
         </AnimatedSection>
-        <AnimatedSection>
-          <Gallery />
-        </AnimatedSection>
+        {/* Gallery: 작품 이미지 추가 후 활성화 예정 */}
         <SNS />
         <AnimatedSection>
           <Testimonials />
