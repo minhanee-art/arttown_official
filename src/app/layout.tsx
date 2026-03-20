@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  formatDetection: {
+    address: false,
+  },
   openGraph: {
     title: "미술마을 미술학원 | 아이들의 창의력이 자라는 곳",
     description:
