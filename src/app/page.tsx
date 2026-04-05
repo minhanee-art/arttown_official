@@ -782,6 +782,14 @@ function Contact() {
                 <p className="text-text-secondary">
                   전화: 010-5766-0060
                 </p>
+                <a
+                  href="http://pf.kakao.com/_mMxlJC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 text-text-secondary hover:text-foreground transition-colors"
+                >
+                  카카오채널 →
+                </a>
               </div>
               <div>
                 <h3 className="heading-section text-lg mb-2">운영시간</h3>
