@@ -273,7 +273,7 @@ function Hero() {
    ─────────────────────────────────────────── */
 function Stats() {
   const stats = [
-    { number: "15+", label: "년 교육 경력" },
+    { number: "10+", label: "년 교육 경력" },
     { number: "500+", label: "명 졸업생" },
     { number: "50+", label: "회 전시 참여" },
     { number: "98%", label: "학부모 만족도" },
@@ -378,7 +378,7 @@ function Philosophy() {
               </div>
               <div>
                 <p className="font-bold">원장 선생님</p>
-                <p className="text-white/60 text-sm">미술마을 미술학원 대표 &middot; 15년 교육 경력</p>
+                <p className="text-white/60 text-sm">미술마을 미술학원 대표 &middot; 10년 교육 경력</p>
               </div>
             </footer>
           </blockquote>
