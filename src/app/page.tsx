@@ -114,7 +114,9 @@ function Navigation() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="https://pf.kakao.com/_mMxlJC/chat"
+            target="_blank"
+            rel="noopener noreferrer"
             className="ml-4 px-5 py-2.5 bg-foreground text-white text-sm font-medium rounded-full hover:bg-foreground/85 transition-colors"
           >
             상담 문의
@@ -158,7 +160,9 @@ function Navigation() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="https://pf.kakao.com/_mMxlJC/chat"
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-2 px-5 py-3 bg-foreground text-white text-center font-medium rounded-full"
               onClick={() => setMobileOpen(false)}
             >
@@ -212,7 +216,9 @@ function Hero() {
               교육철학 알아보기
             </a>
             <a
-              href="#contact"
+              href="https://pf.kakao.com/_mMxlJC/chat"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 border-2 border-foreground text-foreground font-medium rounded-full hover:bg-foreground hover:text-white transition-colors"
             >
               상담 예약
@@ -743,55 +749,18 @@ function Contact() {
               상담 문의
             </h2>
 
-            <div className="bg-white rounded-2xl border border-border p-8">
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    학부모님 성함
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
-                    placeholder="이름을 입력해주세요"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    연락처
-                  </label>
-                  <input
-                    type="tel"
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
-                    placeholder="010-0000-0000"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    자녀 나이
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
-                    placeholder="예: 7세, 초등 3학년"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium mb-1.5">
-                    문의 내용
-                  </label>
-                  <textarea
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors resize-none"
-                    placeholder="궁금한 점을 남겨주세요"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full py-3.5 bg-foreground text-white font-medium rounded-xl hover:bg-foreground/85 transition-colors"
-                >
-                  상담 신청하기
-                </button>
-              </form>
+            <div className="bg-white rounded-2xl border border-border p-8 text-center">
+              <p className="text-lg text-foreground/70 mb-6">
+                카카오톡으로 편하게 상담하세요
+              </p>
+              <a
+                href="https://pf.kakao.com/_mMxlJC/chat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block w-full py-3.5 bg-[#FEE500] text-[#3C1E1E] font-medium rounded-xl hover:bg-[#FDD835] transition-colors"
+              >
+                💬 카카오톡 상담하기
+              </a>
             </div>
           </div>
 
@@ -813,13 +782,21 @@ function Contact() {
                 <p className="text-text-secondary">
                   전화: 010-5766-0060
                 </p>
+                <a
+                  href="http://pf.kakao.com/_mMxlJC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-2 text-text-secondary hover:text-foreground transition-colors"
+                >
+                  카카오채널 →
+                </a>
               </div>
               <div>
                 <h3 className="heading-section text-lg mb-2">운영시간</h3>
                 <p className="text-text-secondary">
-                  평일(월-금): 12:30 - 18:30
+                  평일: 12:30 - 18:30
                   <br />
-                  토요일, 일요일 및 공휴일 휴무
+                  토, 일 휴무
                 </p>
               </div>
 
@@ -911,7 +888,7 @@ function Footer() {
             미술마을 미술학원 | 대구 수성구 상록로 67-1 1층 | 대표 연락처: 010-5766-0060
           </p>
           <p className="text-white/40 text-xs">
-            영업시간: 평일(월-금) 12:30 - 18:30
+            영업시간: 평일 12:30 - 18:30 | 토, 일 휴무
           </p>
           <p className="text-white/40 text-xs">
             &copy; 2026 미술마을 미술학원. All rights reserved.
