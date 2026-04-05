@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import Image from "next/image";
+import KakaoMap from "./components/KakaoMap";
 
 /* ───────────────────────────────────────────
    Art Village Logo
@@ -733,6 +734,32 @@ function Testimonials() {
    Contact / Map Section
    ─────────────────────────────────────────── */
 function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    childAge: "",
+    message: "",
+  });
+
+  function handleSubmit(e: FormEvent) {
+    e.preventDefault();
+
+    const chatMessage = [
+      `[상담 문의]`,
+      `성함: ${formData.name}`,
+      `연락처: ${formData.phone}`,
+      `자녀 나이: ${formData.childAge}`,
+      `문의 내용: ${formData.message}`,
+    ].join("\n");
+
+    const chatUrl = `https://pf.kakao.com/_mMxlJC/chat`;
+
+    // Copy message to clipboard for easy pasting
+    navigator.clipboard?.writeText(chatMessage);
+
+    window.open(chatUrl, "_blank", "noopener,noreferrer");
+  }
+
   return (
     <section id="contact" className="py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -744,13 +771,18 @@ function Contact() {
             </h2>
 
             <div className="bg-white rounded-2xl border border-border p-8">
-              <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 <div>
                   <label className="block text-sm font-medium mb-1.5">
                     학부모님 성함
                   </label>
                   <input
                     type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
                     placeholder="이름을 입력해주세요"
                   />
@@ -761,6 +793,11 @@ function Contact() {
                   </label>
                   <input
                     type="tel"
+                    required
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
                     placeholder="010-0000-0000"
                   />
@@ -771,6 +808,11 @@ function Contact() {
                   </label>
                   <input
                     type="text"
+                    required
+                    value={formData.childAge}
+                    onChange={(e) =>
+                      setFormData({ ...formData, childAge: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors"
                     placeholder="예: 7세, 초등 3학년"
                   />
@@ -781,16 +823,29 @@ function Contact() {
                   </label>
                   <textarea
                     rows={3}
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="w-full px-4 py-3 rounded-xl border border-border focus:outline-none focus:border-accent transition-colors resize-none"
                     placeholder="궁금한 점을 남겨주세요"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-foreground text-white font-medium rounded-xl hover:bg-foreground/85 transition-colors"
+                  className="w-full py-3.5 bg-[#FEE500] text-[#191919] font-medium rounded-xl hover:bg-[#FDD835] transition-colors flex items-center justify-center gap-2"
                 >
-                  상담 신청하기
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path
+                      d="M12 3C6.48 3 2 6.58 2 10.94c0 2.8 1.86 5.27 4.66 6.67-.15.56-.96 3.6-.99 3.83 0 0-.02.17.09.24.11.06.24.01.24.01.32-.04 3.7-2.44 4.28-2.86.55.08 1.13.12 1.72.12 5.52 0 10-3.58 10-7.99C22 6.58 17.52 3 12 3z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                  카카오톡으로 상담 신청하기
                 </button>
+                <p className="text-xs text-text-secondary text-center">
+                  버튼 클릭 시 카카오톡 채팅으로 연결됩니다
+                </p>
               </form>
             </div>
           </div>
@@ -801,35 +856,37 @@ function Contact() {
               오시는 길
             </h2>
 
-            <div className="space-y-8">
-              <div>
-                <h3 className="heading-section text-lg mb-2">주소</h3>
-                <p className="text-text-secondary">
-                  대구 수성구 상록로 67-1 1층
-                </p>
-              </div>
-              <div>
-                <h3 className="heading-section text-lg mb-2">연락처</h3>
-                <p className="text-text-secondary">
-                  전화: 010-5766-0060
-                </p>
-              </div>
-              <div>
-                <h3 className="heading-section text-lg mb-2">운영시간</h3>
-                <p className="text-text-secondary">
-                  평일(월-금): 12:30 - 18:30
-                  <br />
-                  토요일, 일요일 및 공휴일 휴무
-                </p>
+            <div className="space-y-6">
+              <KakaoMap />
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div>
+                  <h3 className="heading-section text-sm mb-1">주소</h3>
+                  <p className="text-text-secondary text-sm">
+                    대구 수성구 상록로 67-1 1층
+                  </p>
+                </div>
+                <div>
+                  <h3 className="heading-section text-sm mb-1">연락처</h3>
+                  <p className="text-text-secondary text-sm">
+                    010-5766-0060
+                  </p>
+                </div>
+                <div>
+                  <h3 className="heading-section text-sm mb-1">운영시간</h3>
+                  <p className="text-text-secondary text-sm">
+                    평일(월-금) 12:30 - 18:30
+                  </p>
+                </div>
               </div>
 
               <a
                 href="https://map.naver.com/p/search/%EB%AF%B8%EC%88%A0%EB%A7%88%EC%9D%84%EB%AF%B8%EC%88%A0%ED%95%99%EC%9B%90/place/1156604364"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-6 py-4 bg-green-500 text-white font-medium rounded-2xl hover:bg-green-600 transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-3 bg-green-500 text-white text-sm font-medium rounded-xl hover:bg-green-600 transition-colors"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
                     fill="currentColor"
