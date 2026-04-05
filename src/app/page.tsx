@@ -794,9 +794,9 @@ function Contact() {
               <div>
                 <h3 className="heading-section text-lg mb-2">운영시간</h3>
                 <p className="text-text-secondary">
-                  평일(월-금): 12:30 - 18:30
+                  평일: 12:30 - 18:30
                   <br />
-                  토요일, 일요일 및 공휴일 휴무
+                  토, 일 휴무
                 </p>
               </div>
 
@@ -888,7 +888,7 @@ function Footer() {
             미술마을 미술학원 | 대구 수성구 상록로 67-1 1층 | 대표 연락처: 010-5766-0060
           </p>
           <p className="text-white/40 text-xs">
-            영업시간: 평일(월-금) 12:30 - 18:30
+            영업시간: 평일 12:30 - 18:30 | 토, 일 휴무
           </p>
           <p className="text-white/40 text-xs">
             &copy; 2026 미술마을 미술학원. All rights reserved.
