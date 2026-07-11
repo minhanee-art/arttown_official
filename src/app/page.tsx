@@ -343,15 +343,11 @@ function PromoVideo() {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center max-w-2xl mx-auto mb-14">
           <SectionLabel en="Promo" ko="소개 영상" />
-          <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
-            미술마을을
+          <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl">
+            미술마을은
             <br />
-            영상으로 만나보세요
+            이렇게 교육합니다
           </h2>
-          <p className="text-text-secondary text-lg leading-relaxed">
-            아이들이 자유롭게 그리고, 상상하고, 성장하는 미술마을의 하루를
-            짧은 영상으로 소개합니다.
-          </p>
         </div>
 
         <div className="mx-auto max-w-[360px]">
