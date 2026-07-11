@@ -81,6 +81,7 @@ function Navigation() {
   }, []);
 
   const links = [
+    { href: "#video", label: "소개 영상" },
     { href: "#philosophy", label: "교육철학" },
     { href: "#curriculum", label: "커리큘럼" },
     { href: "#sns", label: "SNS" },
@@ -302,6 +303,125 @@ function SectionLabel({ en, ko }: { en: string; ko: string }) {
     <p className="text-accent font-bold text-sm tracking-widest uppercase mb-4">
       {en} <span className="normal-case tracking-normal">&mdash; {ko}</span>
     </p>
+  );
+}
+
+/* ───────────────────────────────────────────
+   Promo Video Section (portrait 홍보영상)
+   ─────────────────────────────────────────── */
+function PromoVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleMute = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setIsMuted(v.muted);
+  };
+
+  const togglePlay = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      void v.play();
+      setIsPlaying(true);
+    } else {
+      v.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  return (
+    <section id="video" className="py-24 lg:py-32 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 -left-24 w-72 h-72 rounded-full bg-accent-soft/50" />
+        <div className="absolute bottom-1/4 -right-20 w-64 h-64 rounded-full bg-accent-warm/15" />
+      </div>
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <SectionLabel en="Promo" ko="소개 영상" />
+          <h2 className="heading-display text-4xl sm:text-5xl lg:text-6xl mb-6">
+            미술마을을
+            <br />
+            영상으로 만나보세요
+          </h2>
+          <p className="text-text-secondary text-lg leading-relaxed">
+            아이들이 자유롭게 그리고, 상상하고, 성장하는 미술마을의 하루를
+            짧은 영상으로 소개합니다.
+          </p>
+        </div>
+
+        <div className="mx-auto max-w-[360px]">
+          <div className="relative group">
+            <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-accent/20 via-accent-warm/10 to-transparent -z-10" />
+            <div className="absolute -top-3 -right-3 w-16 h-16 bg-accent rounded-2xl shadow-lg -z-10" />
+            <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-accent-warm rounded-full shadow-lg -z-10" />
+
+            <div className="relative rounded-[1.75rem] overflow-hidden shadow-2xl border border-border bg-foreground aspect-[784/1168]">
+              <video
+                ref={videoRef}
+                src="/videos/promo.mp4"
+                className="absolute inset-0 w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="미술마을 홍보 영상"
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+              />
+
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/55 via-black/20 to-transparent p-4 pt-12 flex items-center justify-between opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-200">
+                <button
+                  type="button"
+                  onClick={togglePlay}
+                  className="w-10 h-10 rounded-full bg-white/90 text-foreground flex items-center justify-center hover:bg-white transition-colors"
+                  aria-label={isPlaying ? "일시정지" : "재생"}
+                >
+                  {isPlaying ? (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                      <rect x="3" y="2" width="3.5" height="12" rx="1" />
+                      <rect x="9.5" y="2" width="3.5" height="12" rx="1" />
+                    </svg>
+                  ) : (
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                      <path d="M4 2.5v11l9-5.5-9-5.5z" />
+                    </svg>
+                  )}
+                </button>
+                <button
+                  type="button"
+                  onClick={toggleMute}
+                  className="w-10 h-10 rounded-full bg-white/90 text-foreground flex items-center justify-center hover:bg-white transition-colors"
+                  aria-label={isMuted ? "소리 켜기" : "음소거"}
+                >
+                  {isMuted ? (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                      <line x1="23" y1="9" x2="17" y2="15" />
+                      <line x1="17" y1="9" x2="23" y2="15" />
+                    </svg>
+                  ) : (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                      <path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07" />
+                    </svg>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <p className="text-center text-text-secondary text-sm mt-6">
+            소리가 꺼진 상태로 자동 재생됩니다. 음소거 버튼을 눌러 소리를 켜 보세요.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -850,6 +970,7 @@ function Footer() {
           <div>
             <h4 className="font-bold text-sm mb-4 text-white/80">바로가기</h4>
             <div className="space-y-2.5">
+              <a href="#video" className="block text-white/50 text-sm hover:text-white transition-colors">소개 영상</a>
               <a href="#philosophy" className="block text-white/50 text-sm hover:text-white transition-colors">교육철학</a>
               <a href="#curriculum" className="block text-white/50 text-sm hover:text-white transition-colors">커리큘럼</a>
               <a href="#contact" className="block text-white/50 text-sm hover:text-white transition-colors">오시는 길</a>
@@ -948,6 +1069,9 @@ export default function Home() {
       <main>
         <Hero />
         <Stats />
+        <AnimatedSection>
+          <PromoVideo />
+        </AnimatedSection>
         <AnimatedSection>
           <Philosophy />
         </AnimatedSection>

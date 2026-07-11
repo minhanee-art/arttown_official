@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@400;700;900&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -20,6 +20,7 @@
   --color-text-secondary: var(--text-secondary);
   --color-border: var(--border);
   --font-sans: 'Noto Sans KR', sans-serif;
+  --font-serif: 'Noto Serif KR', serif;
 }
 
 * {
@@ -50,6 +51,20 @@ section[id] {
   scroll-margin-top: 80px;
 }
 
+/* Pretext-inspired card styles */
+.card-pretext {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.04);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  background: rgba(255,255,255,0.8);
+}
+.card-pretext:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.08);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}
+
 /* Gallery grid hover */
 .gallery-item {
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -72,8 +87,12 @@ section[id] {
   background: var(--accent);
   transition: width 0.3s ease;
 }
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
+}
+.nav-link.active {
+  color: var(--accent);
 }
 
 /* Fade in animation */
@@ -97,8 +116,84 @@ section[id] {
 .animate-delay-3 { animation-delay: 0.3s; }
 .animate-delay-4 { animation-delay: 0.4s; }
 
-/* Counter animation placeholder */
-@keyframes countUp {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Staggered children animation */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.stagger-children.visible > *:nth-child(1) { opacity: 1; transform: translateY(0); transition-delay: 0ms; }
+.stagger-children.visible > *:nth-child(2) { opacity: 1; transform: translateY(0); transition-delay: 100ms; }
+.stagger-children.visible > *:nth-child(3) { opacity: 1; transform: translateY(0); transition-delay: 200ms; }
+.stagger-children.visible > *:nth-child(4) { opacity: 1; transform: translateY(0); transition-delay: 300ms; }
+.stagger-children.visible > *:nth-child(5) { opacity: 1; transform: translateY(0); transition-delay: 400ms; }
+.stagger-children.visible > *:nth-child(6) { opacity: 1; transform: translateY(0); transition-delay: 500ms; }
+
+/* Hero parallax */
+@keyframes floatSlow {
+  0%, 100% { transform: translate(0, 0) rotate(12deg); }
+  50% { transform: translate(-8px, -12px) rotate(16deg); }
+}
+@keyframes floatMedium {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(6px, -8px) rotate(-4deg); }
+}
+@keyframes floatFast {
+  0%, 100% { transform: translate(0, 0) rotate(-6deg); }
+  50% { transform: translate(-4px, -6px) rotate(-2deg); }
+}
+.float-slow { animation: floatSlow 6s ease-in-out infinite; }
+.float-medium { animation: floatMedium 4.5s ease-in-out infinite; }
+.float-fast { animation: floatFast 3.5s ease-in-out infinite; }
+
+/* Back to top */
+.back-to-top {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.back-to-top.hidden {
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+}
+
+/* Testimonial carousel */
+.carousel-track {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Gallery filter button */
+.filter-btn {
+  transition: all 0.2s ease;
+}
+.filter-btn.active {
+  background: var(--foreground);
+  color: white;
+}
+
+/* Form focus ring */
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 93, 58, 0.1);
+}
+
+/* Subtle gradient background like Pretext */
+.bg-gradient-warm {
+  background: linear-gradient(180deg, #FAFAF8 0%, #F5F1EA 100%);
+}
+
+/* Counter animation */
+@keyframes countPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Progress indicator dots */
+.dot {
+  transition: all 0.3s ease;
+}
+.dot.active {
+  background: var(--accent-warm);
+  transform: scale(1.3);
 }
